@@ -38,7 +38,7 @@ O SpaceGuard centraliza informações ambientais em uma aplicação mobile capaz
 * Apresentar alertas de risco;
 * Registrar ocorrências locais;
 * Simular um centro de monitoramento ambiental;
-* Consumir dados reais de uma API pública da NASA;
+* Consumir dados reais de uma API pública da Open-Meteo;
 * Armazenar dados localmente para utilização contínua.
 
 A proposta demonstra como tecnologias espaciais podem ser utilizadas para apoiar ações de monitoramento ambiental e prevenção de desastres.
@@ -63,7 +63,7 @@ O projeto está diretamente conectado ao tema da Global Solution ao demonstrar c
 * Prevenção de desastres naturais;
 * Apoio à gestão ambiental.
 
-Além disso, a aplicação realiza integração com a API pública APOD (Astronomy Picture of the Day) da NASA.
+Além disso, a aplicação realiza integração com API climática externa Open-Meteo, consumindo dados reais de temperatura, umidade e vento.
 
 ---
 
@@ -115,9 +115,9 @@ Biblioteca utilizada para geração dos gráficos presentes nos dashboards.
 
 Biblioteca de ícones utilizada para melhorar a experiência visual da aplicação.
 
-## API APOD da NASA
+## API externa Open-Meteo
 
-Utilizada para obtenção de dados reais relacionados à imagem astronômica do dia.
+Utilizada para obtenção de dados reais relacionados à temperatura, umidade e vento.
 
 ---
 
@@ -159,7 +159,7 @@ Utilizada para obtenção de dados reais relacionados à imagem astronômica do 
 
 ## 🛰️ Central Espacial
 
-* Integração com API pública da NASA.
+* Integração com API pública da Open-Meteo.
 * Exibição de imagem astronômica.
 * Atualização por Pull-To-Refresh.
 * Tratamento de falhas e fallback.
@@ -205,7 +205,7 @@ Utilizada para obtenção de dados reais relacionados à imagem astronômica do 
 | Dashboards               | Dashboard Ambiental, Alertas e Centro de Monitoramento |
 | Gráficos                 | Linha e Pizza                                          |
 | Componentização          | Header, CardIndicador, StatusBadge e gráficos          |
-| Integração com API       | NASA APOD                                              |
+| Integração com API       | Open-Meteo                                             |
 | Tema dinâmico            | Claro e escuro                                         |
 | Persistência de dados    | AsyncStorage                                           |
 | Dados visuais            | Cards, indicadores, gráficos e listas                  |

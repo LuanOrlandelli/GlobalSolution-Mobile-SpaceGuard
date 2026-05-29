@@ -3,58 +3,53 @@ import {
   ScrollView,
   View,
   Text,
-  Image,
   StyleSheet,
   ActivityIndicator,
   RefreshControl,
 } from "react-native";
+import { CloudSun, Thermometer, Droplets, Wind } from "lucide-react-native";
+
 import Header from "../src/components/Header";
 import StatusBadge from "../src/components/StatusBadge";
 import { useApp } from "../src/context/AppContext";
 
-const dadosFallbackNASA = {
-  title: "Imagem Astronômica Simulada",
-  date: "2020-07-20",
-  explanation:
-    "Quando a API pública da NASA atinge o limite de requisições, o SpaceGuard utiliza um conteúdo reserva para manter a experiência funcionando. Esse fallback simula a integração com dados espaciais sem quebrar a tela do usuário.",
-  media_type: "image",
-  url: "https://images-assets.nasa.gov/image/PIA12235/PIA12235~medium.jpg",
+const dadosFallbackClima = {
+  temperature_2m: 28,
+  relative_humidity_2m: 42,
+  wind_speed_10m: 12,
 };
 
 export default function Espacial() {
   const { tema } = useApp();
 
-  const [dadosNASA, setDadosNASA] = useState(null);
+  const [dadosClima, setDadosClima] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [usandoFallback, setUsandoFallback] = useState(false);
 
   useEffect(() => {
-    carregarDadosNASA();
+    carregarDadosClima();
   }, []);
 
-  async function carregarDadosNASA() {
+  async function carregarDadosClima() {
     try {
       const resposta = await fetch(
-        "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+        "https://api.open-meteo.com/v1/forecast?latitude=-23.55&longitude=-46.63&current=temperature_2m,relative_humidity_2m,wind_speed_10m"
       );
 
       const dados = await resposta.json();
 
-      console.log("STATUS:", resposta.status);
-      console.log("RESPOSTA NASA:", dados);
-
-      if (dados?.error || dados?.code || !dados?.url) {
-        setDadosNASA(dadosFallbackNASA);
+      if (!dados?.current) {
+        setDadosClima(dadosFallbackClima);
         setUsandoFallback(true);
         return;
       }
 
-      setDadosNASA(dados);
+      setDadosClima(dados.current);
       setUsandoFallback(false);
     } catch (error) {
-      console.log("Erro ao carregar dados da NASA:", error);
-      setDadosNASA(dadosFallbackNASA);
+      console.log("Erro ao carregar dados climáticos:", error);
+      setDadosClima(dadosFallbackClima);
       setUsandoFallback(true);
     } finally {
       setCarregando(false);
@@ -62,10 +57,10 @@ export default function Espacial() {
     }
   }
 
-    async function atualizarTela() {
-      setRefreshing(true);
-      await carregarDadosNASA();
-    }
+  async function atualizarTela() {
+    setRefreshing(true);
+    await carregarDadosClima();
+  }
 
   return (
     <ScrollView
@@ -80,8 +75,8 @@ export default function Espacial() {
       }
     >
       <Header
-        titulo="Central Espacial"
-        subtitulo="Integração com a API pública da NASA para aproximar o app do ecossistema espacial real."
+        titulo="Dados Climáticos"
+        subtitulo="Integração com API externa para acompanhamento de condições ambientais em tempo real."
       />
 
       {carregando ? (
@@ -91,33 +86,59 @@ export default function Espacial() {
           {usandoFallback ? (
             <StatusBadge
               tipo="alerta"
-              texto="Fallback ativado: API temporariamente limitada"
+              texto="Fallback ativado: API temporariamente indisponível"
             />
           ) : (
-            <StatusBadge tipo="sucesso" texto="API NASA conectada com sucesso" />
+            <StatusBadge
+              tipo="sucesso"
+              texto="API climática conectada com sucesso"
+            />
           )}
 
-          {dadosNASA?.media_type === "image" ? (
-            <Image source={{ uri: dadosNASA.url }} style={styles.imagem} />
-          ) : (
-            <View style={[styles.videoBox, { backgroundColor: tema.fundo }]}>
-              <Text style={[styles.videoTexto, { color: tema.textoSecundario }]}>
-                O conteúdo retornado pela API não é uma imagem.
-              </Text>
-            </View>
-          )}
+          <View style={[styles.iconePrincipal, { backgroundColor: tema.fundo }]}>
+            <CloudSun color={tema.destaque} size={42} />
+          </View>
 
           <Text style={[styles.titulo, { color: tema.texto }]}>
-            {dadosNASA?.title || "Imagem astronômica do dia"}
-          </Text>
-
-          <Text style={[styles.data, { color: tema.textoSecundario }]}>
-            Data: {dadosNASA?.date}
+            Monitoramento Climático Atual
           </Text>
 
           <Text style={[styles.descricao, { color: tema.textoSecundario }]}>
-            {dadosNASA?.explanation}
+            Dados obtidos por API externa para apoiar a análise ambiental e a
+            prevenção de riscos relacionados ao clima.
           </Text>
+
+          <View style={styles.grid}>
+            <View style={[styles.item, { backgroundColor: tema.fundo }]}>
+              <Thermometer color="#F87171" size={26} />
+              <Text style={[styles.valor, { color: tema.texto }]}>
+                {dadosClima?.temperature_2m}°C
+              </Text>
+              <Text style={[styles.label, { color: tema.textoSecundario }]}>
+                Temperatura
+              </Text>
+            </View>
+
+            <View style={[styles.item, { backgroundColor: tema.fundo }]}>
+              <Droplets color="#38BDF8" size={26} />
+              <Text style={[styles.valor, { color: tema.texto }]}>
+                {dadosClima?.relative_humidity_2m}%
+              </Text>
+              <Text style={[styles.label, { color: tema.textoSecundario }]}>
+                Umidade
+              </Text>
+            </View>
+
+            <View style={[styles.item, { backgroundColor: tema.fundo }]}>
+              <Wind color="#A78BFA" size={26} />
+              <Text style={[styles.valor, { color: tema.texto }]}>
+                {dadosClima?.wind_speed_10m} km/h
+              </Text>
+              <Text style={[styles.label, { color: tema.textoSecundario }]}>
+                Vento
+              </Text>
+            </View>
+          </View>
         </View>
       )}
     </ScrollView>
@@ -131,35 +152,43 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: 16,
-    padding: 16,
+    padding: 18,
     marginBottom: 30,
   },
-  imagem: {
-    width: "100%",
-    height: 240,
-    borderRadius: 14,
+  iconePrincipal: {
+    width: 74,
+    height: 74,
+    borderRadius: 22,
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 16,
-  },
-  videoBox: {
-    borderRadius: 14,
-    padding: 16,
-    marginBottom: 16,
-  },
-  videoTexto: {
-    fontSize: 14,
-    lineHeight: 20,
   },
   titulo: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 8,
   },
-  data: {
-    fontSize: 14,
-    marginBottom: 12,
-  },
   descricao: {
     fontSize: 14,
     lineHeight: 22,
+    marginBottom: 18,
+  },
+  grid: {
+    gap: 12,
+  },
+  item: {
+    borderRadius: 14,
+    padding: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  valor: {
+    fontSize: 20,
+    fontWeight: "bold",
+    flex: 1,
+  },
+  label: {
+    fontSize: 13,
   },
 });
