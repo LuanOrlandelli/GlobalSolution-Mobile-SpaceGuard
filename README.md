@@ -216,31 +216,43 @@ Utilizada para obtenção de dados reais relacionados à temperatura, umidade e 
 
 ## Tela Inicial
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 32" src="https://github.com/user-attachments/assets/f94f5f62-4baf-435a-bdd9-b6b460af02c6" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 355" src="https://github.com/user-attachments/assets/cd8557c4-a007-451d-9be2-0ac520fa4a41" />
+
 
 ## Dashboard Ambiental
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 36" src="https://github.com/user-attachments/assets/14eb865e-d81f-4d30-8e9b-7a087567f6b0" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 33" src="https://github.com/user-attachments/assets/0c0f3b13-9e7e-41ab-b3de-7a0f6d1c4813" />
+
 
 ## Alertas Ambientais
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 36 (1)" src="https://github.com/user-attachments/assets/38ddbfce-89d0-4d53-a894-98399dfe97fe" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 33 (1)" src="https://github.com/user-attachments/assets/6b3d9577-6afd-4ff2-8e7e-356b3674daed" />
+
 
 ## Registrar Ocorrência
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 34" src="https://github.com/user-attachments/assets/399bc24a-caa7-40df-84ec-8842edd43830" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 36 (2)" src="https://github.com/user-attachments/assets/26ebbfe5-a3c3-4eea-a701-5d7e3c849423" />
+
 
 ## Central Espacial
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 34 (1)" src="https://github.com/user-attachments/assets/f9ec2d3f-dfc6-479b-8e85-d2b11240fe6a" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 36 (3)" src="https://github.com/user-attachments/assets/2ba3d4c7-8cde-4624-a50a-7676605cfc66" />
+
 
 ## Centro de Monitoramento
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 34 (2)" src="https://github.com/user-attachments/assets/56032a46-a3af-433d-a6e6-dbcbe4cdbfc9" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 37" src="https://github.com/user-attachments/assets/1fb799a3-c168-4cf7-94ba-773788b2b845" />
+
 
 ## Perfil
 
-(Adicionar imagem)
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 35" src="https://github.com/user-attachments/assets/f15b703b-b0c6-48d2-9074-70a5847f284f" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 37 (1)" src="https://github.com/user-attachments/assets/0a1f7fff-a722-4793-883f-7e20b6d2326e" />
+
+
+## Sobre a solução
+
+<img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 35 (1)" src="https://github.com/user-attachments/assets/42a58778-d6f1-4d06-98c3-0464d436e547" /> <img width="400" alt="WhatsApp Image 2026-05-28 at 23 46 37 (2)" src="https://github.com/user-attachments/assets/4fcef94d-76ab-4456-b6ae-4a7bfe32c652" />
+
 
 ---
 
