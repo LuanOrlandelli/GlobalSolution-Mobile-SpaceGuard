@@ -260,7 +260,7 @@ Utilizada para obtenção de dados reais relacionados à temperatura, umidade e 
 
 Link do vídeo:
 
-**(Inserir link após gravação)**
+**([Link da gravação](https://youtu.be/hbfTugLeXmM))**
 
 ---
 
